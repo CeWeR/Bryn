@@ -11,7 +11,7 @@ Installation
 cd $HOME
 git clone https://github.com/BrayneTeam/brynTG.git
 cd brynTG
-chmod +x bbrayne.sh
+chmod +x brayne.sh
 ./brayne.sh install
 ./brayne.sh 
 # Enter a phone number & confirmation code.
