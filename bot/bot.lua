@@ -73,7 +73,7 @@ function create_config( )
     enabled_plugins = {
 		"banhammer",
 		"groupmanager",
-                "info"
+                "info",
 		"msg-checks",
 		"plugins",
 	},
