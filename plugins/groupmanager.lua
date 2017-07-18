@@ -6,7 +6,7 @@ local function modadd(msg)
     end
     local data = load_data(_config.moderation.data)
   if data[tostring(msg.to.id)] then
-return "سوپرگروه["..msg.to.title.."]اضافه شد\nتوسط:["..msg.from.id.."]"..part
+return "سوپرگروه["..msg.to.title.."]اضافه شد\nتوسط:["..msg.from.id.."]"..brayne
   end
         -- create data array in moderation.json
       data[tostring(msg.to.id)] = {
@@ -54,7 +54,7 @@ return "سوپرگروه["..msg.to.title.."]اضافه شد\nتوسط:["..msg.fr
       end
       data[tostring(groups)][tostring(msg.to.id)] = msg.to.id
       save_data(_config.moderation.data, data)
-  return "سوپرگروه["..msg.to.title.."]اضافه شد\nتوسط:["..msg.from.id.."]"..part
+  return "سوپرگروه["..msg.to.title.."]اضافه شد\nتوسط:["..msg.from.id.."]"..brayne
 end
 
 local function modrem(msg)
