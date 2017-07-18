@@ -9,15 +9,15 @@ Installation
 ```sh
 # Let's install the bot.
 cd $HOME
-git clone https://github.com/BrayneTeam/brynTG.git
-cd brynTG
+git clone https://github.com/CeWeR/bryn.git
+cd bryn
 chmod +x brayne.sh
 ./brayne.sh install
 ./brayne.sh 
 # Enter a phone number & confirmation code.
 
 # For Auto Launch:
-cd brynTG
+cd bryn
 chmod 777 autobryn.sh
 screen ./autobryn.sh
 ```
