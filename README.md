@@ -7,15 +7,19 @@
  
 Installation
 ```sh
-git clone https://github.com/BrayneTeam/BrynTG.git
-cd BrynTG
-chmod +x launch.sh
-./launch.sh install
-./launch.sh 
+# Let's install the bot.
+cd $HOME
+git clone https://github.com/BrayneTeam/brynTG.git
+cd brynTG
+chmod +x bbrayne.sh
+./brayne.sh install
+./brayne.sh 
+# Enter a phone number & confirmation code.
 
-and launch
-cd BrynTG
-screen ./launch.sh
+# For Auto Launch:
+cd brynTG
+chmod 777 autobryn.sh
+screen ./autobryn.sh
 ```
 
 * * * 
