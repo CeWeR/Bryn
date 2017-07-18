@@ -73,6 +73,7 @@ function create_config( )
     enabled_plugins = {
 		"banhammer",
 		"groupmanager",
+                "info"
 		"msg-checks",
 		"plugins",
 	},
@@ -122,7 +123,7 @@ function load_plugins()
 			print('\27[31m'..err..'\27[39m')
 		end
 	end
-	print('\n'..#config.enabled_plugins..' Plugins Are Active\n\nStarting BDReborn Robot...\n')
+	print('\n'..#config.enabled_plugins..' Plugins Are Active\n\nStarting BrynTG Robot...\n')
 end
 
 function msg_valid(msg)
