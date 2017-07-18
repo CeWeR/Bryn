@@ -35,7 +35,7 @@ local function getChatId(chat_id)
   else
     local group_id = chat_id:gsub('-', '')
     chat = {ID = group_id, type = 'group'}
-  end.
+  end
 
   return chat
 end
