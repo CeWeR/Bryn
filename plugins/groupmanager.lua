@@ -6,7 +6,7 @@ local function modadd(msg)
     end
     local data = load_data(_config.moderation.data)
   if data[tostring(msg.to.id)] then
-return "سوپرگروه["..msg.to.title.."]اضافه شد\nتوسط:["..msg.from.id.."]"..part
+return "سوپرگروه["..msg.to.title.."]اضافه شد\nتوسط:["..msg.from.id.."]"..brayne
   end
         -- create data array in moderation.json
       data[tostring(msg.to.id)] = {
@@ -54,7 +54,7 @@ return "سوپرگروه["..msg.to.title.."]اضافه شد\nتوسط:["..msg.fr
       end
       data[tostring(groups)][tostring(msg.to.id)] = msg.to.id
       save_data(_config.moderation.data, data)
-  return "سوپرگروه["..msg.to.title.."]اضافه شد\nتوسط:["..msg.from.id.."]"..part
+  return "سوپرگروه["..msg.to.title.."]اضافه شد\nتوسط:["..msg.from.id.."]"..brayne
 end
 
 local function modrem(msg)
@@ -65,7 +65,7 @@ local function modrem(msg)
     local data = load_data(_config.moderation.data)
     local receiver = msg.to.id
   if not data[tostring(msg.to.id)] then
-    return 'سوپرگروه به لیست گروه ها اضافه نشد'..part
+    return 'سوپرگروه به لیست گروه ها اضافه نشد'..brayne
    end
 
   data[tostring(msg.to.id)] = nil
@@ -76,7 +76,7 @@ local function modrem(msg)
         save_data(_config.moderation.data, data)
       end data[tostring(groups)][tostring(msg.to.id)] = nil
       save_data(_config.moderation.data, data)
-  return "سوپرگروه["..msg.to.title.."]ازلیست گروه ها حذف شد\nتوسط:["..msg.from.id.."]"..part
+  return "سوپرگروه["..msg.to.title.."]ازلیست گروه ها حذف شد\nتوسط:["..msg.from.id.."]"..brayne
 end
  local function config_cb(arg, data)
   print(serpent.block(data))
@@ -121,7 +121,7 @@ tdcli_function ({
   }, config_owner, {chat_id=arg.chat_id,user_id=owner_id})
    end
 end
-    return tdcli.sendMessage(arg.chat_id, "", 0, "تمام ادمین های گروه ترفیع پیدا کردند"..part, 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "تمام ادمین های گروه ترفیع پیدا کردند"..brayne, 0, "md")
      end
 
 local function filter_word(msg, word)
@@ -131,11 +131,11 @@ local data = load_data(_config.moderation.data)
     save_data(_config.moderation.data, data)
     end
 if data[tostring(msg.to.id)]['filterlist'][(word)] then
-         return "کلمه ["..word.."] ازقبل فیلتر بوده"..part
+         return "کلمه ["..word.."] ازقبل فیلتر بوده"..brayne
     end
    data[tostring(msg.to.id)]['filterlist'][(word)] = true
      save_data(_config.moderation.data, data)
-         return "کلمه ["..word.."] از به لیست فیلترینگ اضافه شد"..part
+         return "کلمه ["..word.."] از به لیست فیلترینگ اضافه شد"..brayne
     end
 
 local function unfilter_word(msg, word)
@@ -147,9 +147,9 @@ local function unfilter_word(msg, word)
       if data[tostring(msg.to.id)]['filterlist'][word] then
       data[tostring(msg.to.id)]['filterlist'][(word)] = nil
        save_data(_config.moderation.data, data)
-         return "کلمه ["..word.."] از لیست فیلترینگ حذف شد"..part
+         return "کلمه ["..word.."] از لیست فیلترینگ حذف شد"..brayne
       else
-         return "کلمه ["..word.."] در لیست فیلترینگ وجود ندارد"..part
+         return "کلمه ["..word.."] در لیست فیلترینگ وجود ندارد"..brayne
       end
    end
 
@@ -157,17 +157,17 @@ local function modlist(msg)
     local data = load_data(_config.moderation.data)
     local i = 1
   if not data[tostring(msg.chat_id_)] then
-    return "سوپرگروه به لیست گروه های مدیریتی بات اضافه نشده"..part
+    return "سوپرگروه به لیست گروه های مدیریتی بات اضافه نشده"..brayne
   end
   -- determine if table is empty
   if next(data[tostring(msg.to.id)]['mods']) == nil then --fix way
-   return "هیچ مدیری برای این سوپرگروه انتخاب نشده است"..part
+   return "هیچ مدیری برای این سوپرگروه انتخاب نشده است"..brayne
   end
 
    message = 'لیست مدیران گروه :\n---------------------\n'
   for k,v in pairs(data[tostring(msg.to.id)]['mods'])
 do
-    message = message ..i.. '- '..v..' [' ..k.. '] \n---------------------\n'..part
+    message = message ..i.. '- '..v..' [' ..k.. '] \n---------------------\n'..brayne
    i = i + 1
 end
   return message
@@ -177,15 +177,15 @@ local function ownerlist(msg)
     local data = load_data(_config.moderation.data)
     local i = 1
   if not data[tostring(msg.to.id)] then
-return "سوپرگروه به لیست گروه های مدیریتی بات اضافه نشده"..part
+return "سوپرگروه به لیست گروه های مدیریتی بات اضافه نشده"..brayne
   end
   -- determine if table is empty
   if next(data[tostring(msg.to.id)]['owners']) == nil then --fix way
-    return "هیچ مالکی برای این گروه انتخاب نشده است"..part
+    return "هیچ مالکی برای این گروه انتخاب نشده است"..brayne
   end
    message = 'لیست مالکین گروه :\n---------------------\n'
   for k,v in pairs(data[tostring(msg.to.id)]['owners']) do
-    message = message ..i.. '- '..v..' [' ..k.. '] \n---------------------\n'..part
+    message = message ..i.. '- '..v..' [' ..k.. '] \n---------------------\n'..brayne
    i = i + 1
 end
   return message
@@ -289,7 +289,7 @@ local function warning(msg)
 	else
 	local d = math.floor(expiretime / 86400) + 1
         if tonumber(d) == 1 and not is_sudo(msg) and is_mod(msg) then
-				tdcli.sendMessage(msg.to.id, 0, 1, 'از شارژ گروه 1 روز باقی مانده، برای شارژ مجدد با سودو ربات: @BrayneBot تماس بگیرید وگرنه با اتمام زمان شارژ، گروه از لیست ربات حذف وربات گروه را ترک خواهد کرد.'..part, 1, 'md')
+				tdcli.sendMessage(msg.to.id, 0, 1, 'از شارژ گروه 1 روز باقی مانده، برای شارژ مجدد با سودو ربات: @BrayneBot تماس بگیرید وگرنه با اتمام زمان شارژ، گروه از لیست ربات حذف وربات گروه را ترک خواهد کرد.'..brayne, 1, 'md')
 		end
 	end
 end
@@ -298,7 +298,7 @@ local function sudolist(msg)
 local sudo_users = _config.sudo_users
  text = "لیست سودو های ربات :\n---------------------\n"
 for i=1,#sudo_users do
-    text = text..i.." - "..sudo_users[i].."\n---------------------\n"..part
+    text = text..i.." - "..sudo_users[i].."\n---------------------\n"..brayne
 end
 return text
 end
@@ -308,11 +308,11 @@ local sudo_users = _config.sudo_users
 		  	local compare = text
 		  	local i = 1
 		  	for v,user in pairs(_config.admins) do
-			    text = text..i..'- '..(user[2] or '')..' - ('..user[1]..')\n---------------------\n'..part
+			    text = text..i..'- '..(user[2] or '')..' - ('..user[1]..')\n---------------------\n'..brayne
 		  	i = i +1
 		  	end
 		  	if compare == text then
-		  		text = 'ادمینی برای ربات تعیین نشده'..part
+		  		text = 'ادمینی برای ربات تعیین نشده'..brayne
 		  	end
 		  	return text
     end
@@ -322,7 +322,7 @@ local cmd = arg.cmd
 if not tonumber(data.sender_user_id_) then return false end
     if data.sender_user_id_ then
   if not administration[tostring(data.chat_id_)] then
-    return tdcli.sendMessage(data.chat_id_, "", 0, "سوپرگروه به لیست گروه های مدیریتی بات اضافه نشده"..part, 0, "md")
+    return tdcli.sendMessage(data.chat_id_, "", 0, "سوپرگروه به لیست گروه های مدیریتی بات اضافه نشده"..brayne, 0, "md")
      end
 
 if cmd == "visudo" then
@@ -333,12 +333,12 @@ else
 user_name = data.id_
 end
 if already_sudo(tonumber(data.id_)) then
-    return tdcli.sendMessage(arg.chat_id, "", 0, "کاربر:\nاز قبل سودو ربات بود ["..user_name.."]"..part, 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "کاربر:\nاز قبل سودو ربات بود ["..user_name.."]"..brayne, 0, "md")
       end
           table.insert(_config.sudo_users, tonumber(data.id_))
 		save_config()
      reload_plugins(true)
-    return tdcli.sendMessage(arg.chat_id, "", 0, "کاربر:\nبه مقام سودو ربات منتصب شد ["..user_name.."]"..part, 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "کاربر:\nبه مقام سودو ربات منتصب شد ["..user_name.."]"..brayne, 0, "md")
    end
 tdcli_function ({
     ID = "GetUser",
@@ -354,12 +354,12 @@ else
 user_name = data.id_
 end
      if not already_sudo(data.id_) then
-    return tdcli.sendMessage(arg.chat_id, "", 0, "کاربر:\nاز قبل سودو ربات نبود ["..user_name.."]"..part, 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "کاربر:\nاز قبل سودو ربات نبود ["..user_name.."]"..brayne, 0, "md")
       end
           table.remove(_config.sudo_users, getindex( _config.sudo_users, tonumber(data.id_)))
 		save_config()
      reload_plugins(true) 
-    return tdcli.sendMessage(arg.chat_id, "", 0, "کاربر:\nاز مقام سودو ربات برکنار شد ["..user_name.."]"..part, 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, "کاربر:\nاز مقام سودو ربات برکنار شد ["..user_name.."]"..brayne, 0, "md")
    end
 tdcli_function ({
     ID = "GetUser",
