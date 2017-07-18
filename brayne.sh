@@ -25,7 +25,7 @@ install() {
 }
 
 function print_logo() {
-	green "          ____  ____     _____"
+	green "          ____  _____      _____"
 	green "         |  _ )|   _  \   |_   _|___ ____   __  __"
 	green "         |  _ \|  |_)  )    | |/ .__|  _ \_|  \/  |"
 	green "         |____/|__| |__|    |_|\____/\_____|_/\/\_|"
@@ -77,7 +77,7 @@ update() {
 
 if [ "$1" = "install" ]; then
 	print_logo
-	brayneteam
+	Berayneteam
 	logo_play
 	install
   else
@@ -87,7 +87,7 @@ if [ ! -f ./tg/tgcli ]; then
     exit 1
  fi
 	print_logo
-	brayneteam
+	Berayneteam
 	logo_play
    #sudo service redis-server restart
    ./tg/tgcli -s ./bot/bot.lua -l 1 -E $@
